@@ -45,7 +45,7 @@ func (p *Processor) GetAds() {
 		log.Print("ads getter is getting")
 		res := p.ads.GetAll()
 		for _, val := range res {
-			if val.FirstPublished.Before(time.Now().Add(-timeNewAds)) {
+			if val.FirstPublished.Before(time.Now().UTC().Add(-timeNewAds)) {
 				break
 			}
 			ids, _ := p.storage.GetAll()
