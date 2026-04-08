@@ -46,8 +46,8 @@ func (p *Processor) GetAds() {
 		res := p.ads.GetAll()
 		for _, val := range res {
 			log.Printf("current time: %v", time.Now().UTC())
-			log.Printf("check ads time: %v", val.FirstPublished)
-			if val.FirstPublished.Before(time.Now().UTC().Add(-timeNewAds)) {
+			log.Printf("check ads time: %v", val.FirstPublished.Add(2*time.Hour))
+			if val.FirstPublished.Add(2 * time.Hour).Before(time.Now().UTC().Add(-timeNewAds)) {
 				break
 			}
 			ids, _ := p.storage.GetAll()
