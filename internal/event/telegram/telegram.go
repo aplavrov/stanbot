@@ -45,6 +45,8 @@ func (p *Processor) GetAds() {
 		log.Print("ads getter is getting")
 		res := p.ads.GetAll()
 		for _, val := range res {
+			log.Printf("current time: %v", time.Now().UTC())
+			log.Printf("check ads time: %v", val.FirstPublished)
 			if val.FirstPublished.Before(time.Now().UTC().Add(-timeNewAds)) {
 				break
 			}
