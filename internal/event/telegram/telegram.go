@@ -35,8 +35,8 @@ func (p *Processor) StartGetter() {
 }
 
 const (
-	timeBeforeNextUpdate = 15 * time.Minute
-	timeNewAds           = (15*60 + 10) * time.Second
+	timeBeforeNextUpdate = 10 * time.Minute
+	timeNewAds           = 15 * time.Minute
 )
 
 func (p *Processor) GetAds() {
